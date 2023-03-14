@@ -1,7 +1,7 @@
 import { TextField, InputAdornment, IconButton } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { selectPage, setSearchQuery } from "@redux/slices/movies/movies";
-import { Search as SearchIcon } from "@mui/icons-material";
+import SearchIcon from "@mui/icons-material/Search";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

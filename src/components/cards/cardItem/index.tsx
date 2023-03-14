@@ -7,10 +7,8 @@ import {
     Typography,
     IconButton,
 } from "@mui/material";
-import {
-    FavoriteBorder as FavoriteBorderIcon,
-    Favorite as FavoriteIcon,
-} from "@mui/icons-material";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useRouter } from "next/router";
 import React from "react";
 import { Movie } from "src/interfaces/movies";
