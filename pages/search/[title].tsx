@@ -13,19 +13,22 @@ import React from "react";
 import axios from "axios";
 import Head from "next/head";
 import { Snackbar } from "@components/snackbar";
-import { InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { useBreakpoints } from "src/hooks/useBreakpoints";
+import { Movie } from "src/interfaces/movies";
 
 const SearchResults: React.FC<{
-    results: InferGetServerSidePropsType<typeof getServerSideProps>;
+    results: Movie[];
 }> = ({ results }) => {
     const searchQuery = useSelector(selectSearchQuery);
     const openSnackbar = useSelector(selectOpenSnackbar);
     const dispatch = useDispatch();
     const router = useRouter();
-    const handleChangePagination = (e: any, value: number) => {
+    const handleChangePagination = (
+        e: React.ChangeEvent<unknown>,
+        value: number,
+    ) => {
         router.replace({
             pathname: `/search/${searchQuery}`,
             query: {
@@ -44,7 +47,7 @@ const SearchResults: React.FC<{
                 <Box>
                     {results.length === 0 ? (
                         <Box
-                            height="100vh"
+                            height="50vh"
                             display="flex"
                             justifyContent="center"
                             alignItems="center"
@@ -77,7 +80,7 @@ const SearchResults: React.FC<{
                 <Box>
                     {results.length === 0 ? (
                         <Box
-                            height="100vh"
+                            height="50vh"
                             display="flex"
                             justifyContent="center"
                             alignItems="center"
@@ -110,7 +113,7 @@ const SearchResults: React.FC<{
                 <Box>
                     {results.length === 0 ? (
                         <Box
-                            height="100vh"
+                            height="50vh"
                             display="flex"
                             justifyContent="center"
                             alignItems="center"
@@ -147,7 +150,7 @@ const SearchResults: React.FC<{
                 <Box>
                     {results.length === 0 ? (
                         <Box
-                            height="100vh"
+                            height="50vh"
                             display="flex"
                             justifyContent="center"
                             alignItems="center"
@@ -228,7 +231,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
                 store.dispatch(setMovies([]));
             }
             store.dispatch(setSearchQuery(query.title));
-            const movies = store.getState().movies;
+            const movies: Movie[] = store.getState().movies;
             return {
                 props: {
                     results: movies,

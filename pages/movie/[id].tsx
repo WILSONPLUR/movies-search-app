@@ -2,7 +2,6 @@ import { Layout } from "@components/layout";
 import { Box, Typography, useTheme, Button } from "@mui/material";
 import { wrapper } from "@redux/store";
 import axios from "axios";
-import { InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
@@ -10,9 +9,9 @@ import { useBreakpoints } from "src/hooks/useBreakpoints";
 import { Movie } from "src/interfaces/movies/index";
 
 const MovieDetails: React.FC<{
-    movie: InferGetServerSidePropsType<typeof getServerSideProps>;
+    movie: Movie;
 }> = ({ movie }) => {
-    const { Title, Year, Plot, Poster } = movie;
+    const { Title, Plot, Poster } = movie;
     const theme = useTheme();
     const router = useRouter();
     const breakpointsXs = useBreakpoints("xs", theme);

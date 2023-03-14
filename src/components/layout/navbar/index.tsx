@@ -1,36 +1,22 @@
 import {
     Button,
-    TextField,
     Box,
     IconButton,
     AppBar,
-    Menu,
-    Typography,
-    InputAdornment,
     Toolbar,
-    Tooltip,
-    Avatar,
-    Container,
-    MenuItem,
     Drawer,
     CssBaseline,
     Divider,
     List,
     ListItem,
     ListItemButton,
-    ListItemText,
 } from "@mui/material";
-import { selectPage, selectSearchQuery } from "@redux/slices/movies/movies";
-import { AnyAction, Dispatch } from "@reduxjs/toolkit";
+import { selectSearchQuery } from "@redux/slices/movies/movies";
 import { useRouter } from "next/router";
-import { Search as SearchIcon, WbSunnyOutlined } from "@mui/icons-material";
-import { setSearchQuery } from "@redux/slices/movies/movies";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import SearchBar from "./components/searchbar";
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import AdbIcon from "@mui/icons-material/Adb";
-import Link from "next/link";
 
 const drawerWidth = 240;
 const navItems = [

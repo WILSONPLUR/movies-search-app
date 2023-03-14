@@ -1,12 +1,5 @@
-import React, { Component, ErrorInfo, ReactNode } from "react";
-
-interface Props {
-    children?: ReactNode;
-}
-
-interface State {
-    hasError: boolean;
-}
+import React, { Component, ErrorInfo } from "react";
+import { Props, State } from "src/interfaces/errorBoundary";
 
 class ErrorBoundary extends Component<Props, State> {
     public state: State = {
@@ -27,7 +20,7 @@ class ErrorBoundary extends Component<Props, State> {
             return <h1>Sorry.. there was an error</h1>;
         }
 
-        return this.props.children;
+        return <>{this.props.children}</>;
     }
 }
 

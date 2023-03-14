@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CardItem } from "../cardItem";
 import { Box, useTheme } from "@mui/material";
 import { useBreakpoints } from "src/hooks/useBreakpoints";
@@ -6,23 +6,27 @@ import { setOpenSnackbar } from "@redux/slices/movies/movies";
 import { Movie } from "src/interfaces/movies";
 import { useDispatch } from "react-redux";
 
-export const CardsList: React.FC<{ movies: [] }> = ({ movies }) => {
+export const CardsList: React.FC<{ movies: Movie[] }> = ({ movies }) => {
     const theme = useTheme();
     const breakpointsLg = useBreakpoints("lg", theme);
     const breakpointsXl = useBreakpoints("xl", theme);
     const breakpointsMd = useBreakpoints("md", theme);
     const breakpointsXs = useBreakpoints("xs", theme);
-    const [favs, setFavs] = useState<Movie[] | []>(
-        JSON.parse(localStorage.getItem("favs")) || [],
-    );
+    const [favs, setFavs] = useState<Movie[] | []>([]);
+
+    useEffect(() => {
+        const favMovies = localStorage.getItem("favs");
+        setFavs(favMovies !== null ? JSON.parse(favMovies) : []);
+    }, []);
     const dispatch = useDispatch();
     const addToFav = (movie: Movie) => {
         dispatch(setOpenSnackbar(true));
-        setFavs((prev: Movie[]) => {
-            const newArray = [];
+        setFavs((prev: Movie[] | []) => {
+            const newArray: Movie[] = [];
             const uniqueObject = {};
 
-            const arr = [...prev, { ...movie, favourite: true }];
+            const arr: Movie[] | [] = [...prev, { ...movie, favourite: true }];
+
             for (const i in arr) {
                 //Extract imdbID
                 const imdbID = arr[i]["imdbID"];
@@ -37,7 +41,6 @@ export const CardsList: React.FC<{ movies: [] }> = ({ movies }) => {
             }
             //Save favsList to localStorage
             localStorage.setItem("favs", JSON.stringify(newArray));
-
             return newArray;
         });
     };

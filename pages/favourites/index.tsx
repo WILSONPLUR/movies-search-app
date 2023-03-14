@@ -15,8 +15,8 @@ const FavouritesPage: React.FC = () => {
     const breakpointsXs = useBreakpoints("xs", theme);
 
     useEffect(() => {
-        const favsMovies = localStorage.getItem("favs");
-        setFavs(JSON.parse(favsMovies));
+        const favMovies = localStorage.getItem("favs");
+        setFavs(favMovies !== null ? JSON.parse(favMovies) : null);
     }, []);
 
     const renderFavourites = () => {
@@ -36,7 +36,7 @@ const FavouritesPage: React.FC = () => {
                         ))}
                     {!favs && (
                         <Box
-                            height="100vh"
+                            height="50vh"
                             width="100%"
                             display="flex"
                             alignItems="center"
@@ -49,7 +49,9 @@ const FavouritesPage: React.FC = () => {
                                 // textAlign="center"
                                 marginTop="100px"
                             >
-                                You haven't favourites yet...Try to add movie
+                                You haven't favourites yet...
+                                <br />
+                                Try to add movie
                             </Typography>
                         </Box>
                     )}
@@ -71,7 +73,7 @@ const FavouritesPage: React.FC = () => {
                         ))}
                     {!favs && (
                         <Box
-                            height="100vh"
+                            height="50vh"
                             width="100%"
                             display="flex"
                             alignItems="center"
@@ -84,7 +86,9 @@ const FavouritesPage: React.FC = () => {
                                 // textAlign="center"
                                 marginTop="100px"
                             >
-                                You haven't favourites yet...Try to add movie
+                                You haven't favourites yet...
+                                <br />
+                                Try to add movie
                             </Typography>
                         </Box>
                     )}
@@ -106,7 +110,7 @@ const FavouritesPage: React.FC = () => {
                         ))}
                     {!favs && (
                         <Box
-                            height="100vh"
+                            height="50vh"
                             width="100%"
                             display="flex"
                             alignItems="center"
@@ -119,7 +123,9 @@ const FavouritesPage: React.FC = () => {
                                 // textAlign="center"
                                 marginTop="100px"
                             >
-                                You haven't favourites yet...Try to add movie
+                                You haven't favourites yet...
+                                <br />
+                                Try to add movie
                             </Typography>
                         </Box>
                     )}
@@ -141,7 +147,7 @@ const FavouritesPage: React.FC = () => {
                         ))}
                     {!favs && (
                         <Box
-                            height="100vh"
+                            height="50vh"
                             width="100%"
                             display="flex"
                             alignItems="center"
@@ -154,7 +160,9 @@ const FavouritesPage: React.FC = () => {
                                 // textAlign="center"
                                 marginTop="100px"
                             >
-                                You haven't favourites yet...Try to add movie
+                                You haven't favourites yet...
+                                <br />
+                                Try to add movie
                             </Typography>
                         </Box>
                     )}

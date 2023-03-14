@@ -13,11 +13,6 @@ import {
 } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import React from "react";
-import { useSelector } from "react-redux";
-import {
-    selectMoviesState,
-    selectOpenSnackbar,
-} from "@redux/slices/movies/movies";
 import { Movie } from "src/interfaces/movies";
 
 export const CardItem: React.FC<{

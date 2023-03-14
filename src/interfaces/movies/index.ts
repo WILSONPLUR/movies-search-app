@@ -3,6 +3,7 @@ export interface Movie {
     Year: string;
     Poster: string;
     imdbID: string;
+    Plot: string;
     favourite: boolean;
 }
 
