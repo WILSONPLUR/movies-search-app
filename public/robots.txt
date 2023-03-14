@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+User-agent: *
+Allow: /search/:title
+
+User-agent: *
+Allow: /movie/:id
