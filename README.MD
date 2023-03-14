@@ -22,4 +22,6 @@
     yarn start
 ```
 
-## Learn More
+## Link to live demo(Vercel)
+
+https://movies-search-app-wine.vercel.app/
